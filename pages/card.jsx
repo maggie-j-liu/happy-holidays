@@ -8,7 +8,9 @@ export default function Home() {
         <title>Happy Holidays!!</title>
         <meta name="description" content="A Next.js + TailwindCSS starter" />
       </Head>
-      <main className="min-h-screen bg-blue-100">happy holidays</main>
+      <main className="min-h-screen bg-blue-100">
+        <Card />
+      </main>
     </div>
   );
 }
