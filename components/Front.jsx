@@ -1,7 +1,11 @@
-const Front = () => {
+const Front = ({ title }) => {
   return (
-    <div>
-      <h1 className="font-script">happy holidays</h1>
+    <div className="w-full h-full p-2 sm:p-4">
+      <div className="border-red-400 border-2 w-full h-full flex flex-col items-center justify-center">
+        <h1 className="font-script text-5xl underline text-red-500 decoration-red-500">
+          {title}
+        </h1>
+      </div>
     </div>
   );
 };

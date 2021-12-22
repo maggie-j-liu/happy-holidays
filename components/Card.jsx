@@ -25,7 +25,11 @@ const textVariants = {
   },
 };
 
-const Card = () => {
+const Card = ({
+  title = "happy holidays",
+  message = "happy holidays",
+  name = "",
+}) => {
   const controls = useAnimation();
   const [open, setOpen] = useState(false);
   return (
@@ -46,7 +50,7 @@ const Card = () => {
           >
             <h1 className="sm:text-3xl font-bold">~ happy holidays ~</h1>
             <h2 className="sm:text-xl font-light">
-              You received a card from uwu!
+              You received a card from {name}!
             </h2>
           </motion.div>
           <motion.div
@@ -109,14 +113,14 @@ const Card = () => {
                 transform: "rotateX(180deg)",
               }}
             >
-              <Side1 />
+              <Side1 message={message} />
             </div>
           </div>
           <div
             className="absolute inset-0 bg-white"
             style={{ backfaceVisibility: "hidden" }}
           >
-            <Front />
+            <Front title={title} />
           </div>
         </motion.div>
         <div
