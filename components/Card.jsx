@@ -2,8 +2,8 @@ import { motion, useAnimation } from "framer-motion";
 import { useState } from "react";
 import Front from "./Front";
 import dynamic from "next/dynamic";
-import Side1 from "./Side1";
-import Side2 from "./Side2";
+import TextSide from "./TextSide";
+import ImageSide from "./ImageSide";
 import Head from "next/head";
 
 const Snow = dynamic(() => import("react-snowfall"), { ssr: false });
@@ -124,7 +124,7 @@ const Card = ({
                 transform: "rotateX(180deg)",
               }}
             >
-              <Side1 message={message} />
+              <ImageSide />
             </div>
           </div>
           <div
@@ -135,13 +135,13 @@ const Card = ({
           </div>
         </motion.div>
         <div
-          className="w-full sm:w-2/3 max-w-2xl aspect-video will-change-transform bg-white"
+          className="overflow-auto w-full sm:w-2/3 max-w-2xl aspect-video will-change-transform bg-white"
           style={{
             transformOrigin: "center top",
             transform: "rotateX(10deg)",
           }}
         >
-          <Side2 />
+          <TextSide message={message} />
         </div>
       </div>
       <Snow color="white" />
