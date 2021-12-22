@@ -1,12 +1,13 @@
 import { motion, useAnimation } from "framer-motion";
 import { useState } from "react";
+import Front from "./Front";
 
 const cardVariants = {
   closed: {
-    rotateX: -170,
+    transform: "rotateX(10deg) translateY(100%)",
   },
   open: {
-    rotateX: -10,
+    transform: "rotateX(170deg) translateY(100%)",
   },
 };
 
@@ -40,10 +41,11 @@ const Card = () => {
           >
             <h1 className="text-3xl font-bold">~ happy holidays ~</h1>
             <h2 className="text-xl font-light">
-              You received a card from Maggie Liu!
+              You received a card from uwu!
             </h2>
           </motion.div>
         </div>
+
         <motion.div
           onTap={() => {
             if (open) {
@@ -60,18 +62,37 @@ const Card = () => {
           transition={{
             duration: 3,
           }}
-          className="w-2/3 max-w-2xl aspect-video bg-red-200 z-10"
+          className="relative w-2/3 max-w-2xl aspect-video bg-red-200 z-10"
           style={{
             transformOrigin: "center bottom",
+            transform: "translateY(100%)",
+            transformStyle: "preserve-3d",
           }}
-        ></motion.div>
+        >
+          <div className="absolute inset-0 bg-red-100">
+            <div
+              className="absolute inset-0"
+              style={{ transform: "rotateX(180deg)" }}
+            >
+              happy holidays
+            </div>
+          </div>
+          <div
+            className="absolute inset-0 bg-blue-200"
+            style={{ backfaceVisibility: "hidden" }}
+          >
+            <Front />
+          </div>
+        </motion.div>
         <div
           className="w-2/3 max-w-2xl aspect-video bg-green-200 will-change-transform"
           style={{
             transformOrigin: "center top",
             transform: "rotateX(10deg)",
           }}
-        ></div>
+        >
+          happy holidays
+        </div>
       </div>
     </>
   );
