@@ -4,6 +4,7 @@ import Front from "./Front";
 import dynamic from "next/dynamic";
 import Side1 from "./Side1";
 import Side2 from "./Side2";
+import Head from "next/head";
 
 const Snow = dynamic(() => import("react-snowfall"), { ssr: false });
 
@@ -27,13 +28,21 @@ const textVariants = {
 
 const Card = ({
   title = "happy holidays",
-  message = "happy holidays",
+  message = "",
   name = "",
+  recipient = "",
 }) => {
   const controls = useAnimation();
   const [open, setOpen] = useState(false);
   return (
     <div className="py-16 px-8 overflow-x-hidden">
+      <Head>
+        <title>Happy Holidays, {recipient}</title>
+        <meta
+          name="description"
+          content={`A holiday card for ${recipient}, from ${name}.`}
+        />
+      </Head>
       <div
         className="relative flex flex-col items-center w-full"
         style={{ perspective: 1000 }}
@@ -48,7 +57,9 @@ const Card = ({
             }}
             className="text-center flex flex-col items-center"
           >
-            <h1 className="sm:text-3xl font-bold">~ happy holidays ~</h1>
+            <h1 className="sm:text-3xl font-bold">
+              ~ happy holidays, {recipient} ~
+            </h1>
             <h2 className="sm:text-xl font-light">
               You received a card from {name}!
             </h2>
@@ -99,7 +110,7 @@ const Card = ({
           transition={{
             duration: 3,
           }}
-          className="relative w-full sm:w-2/3 max-w-2xl aspect-video z-10"
+          className="cursor-pointer relative w-full sm:w-2/3 max-w-2xl aspect-video z-10"
           style={{
             transformOrigin: "center bottom",
             transform: "translateY(100%)",
@@ -120,7 +131,7 @@ const Card = ({
             className="absolute inset-0 bg-white"
             style={{ backfaceVisibility: "hidden" }}
           >
-            <Front title={title} />
+            <Front title={title ? title : "happy holidays"} />
           </div>
         </motion.div>
         <div
