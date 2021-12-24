@@ -4,7 +4,7 @@ const Front = ({ title }) => {
   return (
     <div className="overflow-hidden relative w-full h-full p-2 sm:p-4">
       <div className="border-red-500 border-4 w-full h-full flex flex-col items-center justify-center">
-        <h1 className="font-bold font-script text-3xl sm:text-5xl underline text-red-500 decoration-red-500">
+        <h1 className="text-center font-bold font-script text-3xl sm:text-5xl underline text-red-500 decoration-red-500">
           {title}
         </h1>
       </div>
