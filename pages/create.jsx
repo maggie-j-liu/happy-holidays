@@ -72,7 +72,7 @@ export default function Home() {
           Create
         </button>
       </section>
-      <Card name={name} title={title} message={message} />
+      <Card name={name} title={title} message={message} recipient={recipient} />
     </main>
   );
 }

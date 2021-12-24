@@ -23,7 +23,7 @@ export default function Home() {
           </a>
         </h2>
         <Link href="/create">
-          <a className="font-serif mt-4 bg-blue-500 text-white px-2 py-0.5 w-36 text-center">
+          <a className="font-serif mt-4 bg-blue-500 hover:bg-blue-600 text-white px-2 py-0.5 w-36 text-center">
             Create
           </a>
         </Link>

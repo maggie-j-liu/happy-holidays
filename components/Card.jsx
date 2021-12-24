@@ -57,10 +57,10 @@ const Card = ({
             }}
             className="text-center flex flex-col items-center"
           >
-            <h1 className="sm:text-3xl font-bold">
-              ~ happy holidays, {recipient} ~
+            <h1 className="text-sm leading-none sm:leading-normal sm:text-3xl font-bold">
+              ~&nbsp;happy holidays, {recipient}&nbsp;~
             </h1>
-            <h2 className="sm:text-xl font-light">
+            <h2 className="text-xs sm:text-xl font-light">
               You received a card from {name}!
             </h2>
           </motion.div>
@@ -73,13 +73,13 @@ const Card = ({
             }}
             className="absolute bottom-1 flex flex-col items-center"
           >
-            <div className="text-gray-500 text-sm sm:text-base">
+            <div className="text-gray-500 text-xs sm:text-base">
               Tap the card to open
             </div>
             <div className="translate-y-1 sm:translate-y-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 sm:h-8 sm:w-8 text-gray-400 animate-bounce stroke-1"
+                className="h-4 w-4 sm:h-8 sm:w-8 text-gray-400 animate-bounce stroke-1"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
