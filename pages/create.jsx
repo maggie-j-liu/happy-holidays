@@ -7,6 +7,7 @@ export default function Home() {
   const [title, setTitle] = useState("");
   const [message, setMessage] = useState("");
   const [recipient, setRecipient] = useState("");
+  const [submitted, setSubmitted] = useState(false);
   const router = useRouter();
   const create = async () => {
     const res = await fetch("/api/create", {
@@ -19,9 +20,11 @@ export default function Home() {
     }
     const { id } = await res.json();
     router.push(`/card/${id}`);
+    setSubmitted(true);
     setName("");
     setTitle("");
     setMessage("");
+    setRecipient("");
   };
   return (
     <main className="min-h-screen bg-blue-100 w-full py-16 px-8">
@@ -66,8 +69,9 @@ export default function Home() {
           />
         </label>
         <button
-          className="w-full px-2 py-1 hover:bg-blue-600 bg-blue-500 text-white font-medium"
+          className="disabled:saturate-50 disabled:hover:bg-blue-500 cursor-not-allowed w-full px-2 py-1 hover:bg-blue-600 bg-blue-500 text-white font-medium"
           onClick={() => create()}
+          disabled={submitted}
         >
           Create
         </button>
